@@ -55,11 +55,35 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventDefinitions\Hooks1.cs" />
+    <Compile Include="Features\SpecFlowFeature1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpecFlowFeature1.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepDefinitions\StepDefinition1.cs" />
+    <Compile Include="UIMaps\BaseMapModel.cs" />
+    <Compile Include="UIMaps\CalculatorUIMapModel.cs" />
+    <Compile Include="StepDefinitions\Base.StepDefinition.cs" />
+    <Compile Include="Utils\UIMap1.cs">
+      <DependentUpon>UIMap1.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\UIMap1.Designer.cs">
+      <DependentUpon>UIMap1.uitest</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Features\SpecFlowFeature1.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SpecFlowFeature1.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
+    <None Include="Utils\UIMap1.uitest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
