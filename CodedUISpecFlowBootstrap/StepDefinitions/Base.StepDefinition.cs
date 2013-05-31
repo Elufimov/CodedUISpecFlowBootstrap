@@ -23,6 +23,7 @@ using MouseButtons = System.Windows.Forms.MouseButtons;
 using TechTalk.SpecFlow;
 
 using CodedUISpecFlowBootstrap.UIMaps;
+using CodedUISpecFlowBootstrap.Helpers;
 
 
 namespace CodedUISpecFlowBootstrap.StepDefinitions
@@ -32,6 +33,12 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
     {
         private const string CurrentPageKey = "Current.UIMap";
         public static ApplicationUnderTest App { get; set; }
+
+        [Given("I start instance №'(.*)' of '(.*)'")]
+        public void GivenIHaveEnteredSomethingIntoTheCalculator(string number, string app)
+        {
+            
+        }
 
         protected CalculatorUIMapModel CalculatorUIMap
         {

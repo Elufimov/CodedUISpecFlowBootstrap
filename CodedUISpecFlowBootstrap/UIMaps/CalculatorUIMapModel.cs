@@ -37,7 +37,7 @@ namespace CodedUISpecFlowBootstrap.UIMaps
             {
                 WinMenuItem viewButton = new WinMenuItem(App);
                 viewButton.TechnologyName = "MSAA";
-                viewButton.SearchProperties.Add(WinMenuItem.PropertyNames.Name, "Вид");
+                viewButton.SearchProperties.Add(WinMenuItem.PropertyNames.Name, "Виsacaд");
                 return viewButton;
             }
         }

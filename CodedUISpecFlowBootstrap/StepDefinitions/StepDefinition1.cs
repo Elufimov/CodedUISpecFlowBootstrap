@@ -25,6 +25,7 @@
     using TechTalk.SpecFlow;
 
     using CodedUISpecFlowBootstrap.UIMaps;
+    using CodedUISpecFlowBootstrap.Helpers;
 
 
 
@@ -39,7 +40,7 @@
             App = ApplicationUnderTest.Launch(@"C:\Windows\System32\calc.exe");
             CalculatorUIMap = new CalculatorUIMapModel(App);
             //Console.WriteLine(CalculatorUIMap.ViewButton.ClassName);
-            
+            Config.ConfigReader("config.yaml");  
             Mouse.Click(CalculatorUIMap.ViewButton);
         }
 

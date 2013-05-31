@@ -1,0 +1,4 @@
+﻿applications:
+- name: calc
+path: C:\Windows\System32\calc.exe
+

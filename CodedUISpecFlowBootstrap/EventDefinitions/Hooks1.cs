@@ -7,6 +7,8 @@ using Microsoft.VisualStudio.TestTools.UITesting;
 
 using TechTalk.SpecFlow;
 
+using CodedUISpecFlowBootstrap.Helpers;
+
 namespace CodedUISpecFlowBootstrap.StepDefinitions
 {
     [Binding]
@@ -18,6 +20,8 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
         public static void SpecflowBeforeTestRun()
         {            
             Playback.Initialize();
+
+
         }
 
         [AfterScenario("CodedUI")]
