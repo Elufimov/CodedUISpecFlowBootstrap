@@ -42,6 +42,28 @@ namespace CodedUISpecFlowBootstrap.UIMaps
             }
         }
 
+        public WinMenuItem HelpButton
+        {
+            get
+            {
+                WinMenuItem viewButton = new WinMenuItem(App);
+                viewButton.TechnologyName = "MSAA";
+                viewButton.SearchProperties.Add(WinMenuItem.PropertyNames.Name, "Справка");
+                return viewButton;
+            }
+        }
+
+        public WinMenuItem EngineeringButton
+        {
+            get
+            {
+                WinMenuItem viewButton = new WinMenuItem(App);
+                viewButton.TechnologyName = "MSAA";
+                viewButton.SearchProperties.Add(WinMenuItem.PropertyNames.Name, "Инженерный\tAlt+2");
+                return viewButton;
+            }
+        }
+
 
     }
 }

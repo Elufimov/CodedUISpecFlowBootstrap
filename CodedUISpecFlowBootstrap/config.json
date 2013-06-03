@@ -1,0 +1,12 @@
+﻿{
+	"Applications": [
+		{ 
+			"Name": "Calc1", 
+			"Path": "C:/Windows/System32/calc.exe" 
+		},
+		{ 
+			"Name": "Calc2", 
+			"Path": "C:/Windows/System32/calc.exe" 
+		} 				
+	]  
+}

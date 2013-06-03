@@ -23,6 +23,7 @@ using MouseButtons = System.Windows.Forms.MouseButtons;
 using TechTalk.SpecFlow;
 
 using CodedUISpecFlowBootstrap.UIMaps;
+using CodedUISpecFlowBootstrap.Helpers;
 
 
 namespace CodedUISpecFlowBootstrap.StepDefinitions
@@ -30,13 +31,17 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
     [Binding]
     public class BaseStepDefinitions
     {
-        private const string CurrentPageKey = "Current.UIMap";
-        public static ApplicationUnderTest App { get; set; }
-
-        protected CalculatorUIMapModel CalculatorUIMap
+        [Given(@"I start instance №'(.*)' of '(.*)'")]
+        public void IStartInstance(string number, string name)
         {
-            get { return (CalculatorUIMapModel)ScenarioContext.Current[CurrentPageKey]; }
-            set { ScenarioContext.Current[CurrentPageKey] = value; }
+            Helpers.MIASupport.AddInstace(number, name);
         }
+
+        [Given(@"I close instance №'(.*)' of '(.*)'")]
+        public void GivenICloseInstanceЩа(string number, string name)
+        {
+            Helpers.MIASupport.GetInstance(number, name).Close();
+        }
+
     }
 }
