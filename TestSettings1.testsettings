@@ -3,6 +3,7 @@
   <Description>These are default test settings for a local test run.</Description>
   <Deployment>
     <DeploymentItem filename="CodedUISpecFlowBootstrap\config.yaml" />
+    <DeploymentItem filename="CodedUISpecFlowBootstrap\config.json" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>

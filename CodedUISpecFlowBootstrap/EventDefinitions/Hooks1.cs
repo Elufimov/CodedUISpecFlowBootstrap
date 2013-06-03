@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
 
 using Microsoft.VisualStudio.TestTools.UITesting;
 
@@ -9,23 +10,25 @@ using TechTalk.SpecFlow;
 
 using CodedUISpecFlowBootstrap.Helpers;
 
-namespace CodedUISpecFlowBootstrap.StepDefinitions
+namespace CodedUISpecFlowBootstrap.EventDefinitions
 {
     [Binding]
-    public class Hooks1 :BaseStepDefinitions
+    public class Hooks1
     {
-        // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
+        [BeforeScenario]
+        public static void BeforeScenario()
+        {
+            Config.ConfigReader("config.json"); 
+        }
 
         [BeforeScenario("CodedUI")]
-        public static void SpecflowBeforeTestRun()
+        public static void CodedUIBeforeScenario()
         {            
-            Playback.Initialize();
-
-
+            Playback.Initialize();        
         }
 
         [AfterScenario("CodedUI")]
-        public static void SpecflowAfterTestRun()
+        public static void CodedUIAfterScenario()
         {
             Playback.Cleanup();
         }

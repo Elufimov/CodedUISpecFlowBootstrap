@@ -39,6 +39,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -48,12 +51,6 @@
     </Reference>
     <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
-    <Reference Include="YamlDotNet.Core">
-      <HintPath>..\packages\YamlDotNet.Core.2.0.0\lib\net35\YamlDotNet.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="YamlDotNet.RepresentationModel">
-      <HintPath>..\packages\YamlDotNet.RepresentationModel.2.0.0\lib\net35\YamlDotNet.RepresentationModel.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
@@ -62,33 +59,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventDefinitions\Hooks1.cs" />
-    <Compile Include="Features\SpecFlowFeature1.feature.cs">
+    <Compile Include="Features\Calculator.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SpecFlowFeature1.feature</DependentUpon>
+      <DependentUpon>Calculator.feature</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Config.Helper.cs" />
     <Compile Include="Helpers\MIASupport.Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StepDefinitions\StepDefinition1.cs" />
+    <Compile Include="StepDefinitions\Calculator.StepDefinition.cs" />
     <Compile Include="UIMaps\BaseMapModel.cs" />
     <Compile Include="UIMaps\CalculatorUIMapModel.cs" />
     <Compile Include="StepDefinitions\Base.StepDefinition.cs" />
+    <Compile Include="UIMaps\UIMapLoader.cs" />
+    <Compile Include="Utils\UIMap1.cs">
+      <DependentUpon>UIMap1.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\UIMap1.Designer.cs">
+      <DependentUpon>UIMap1.uitest</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="config.json" />
     <None Include="config.yaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Features\SpecFlowFeature1.feature">
+    <None Include="Features\Calculator.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SpecFlowFeature1.feature.cs</LastGenOutput>
+      <LastGenOutput>Calculator.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Utils\UIMap1.uitest" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="config.xml" />
   </ItemGroup>

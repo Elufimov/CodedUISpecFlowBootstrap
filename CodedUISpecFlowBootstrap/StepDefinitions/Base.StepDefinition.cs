@@ -31,19 +31,17 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
     [Binding]
     public class BaseStepDefinitions
     {
-        private const string CurrentPageKey = "Current.UIMap";
-        public static ApplicationUnderTest App { get; set; }
-
-        [Given("I start instance №'(.*)' of '(.*)'")]
-        public void GivenIHaveEnteredSomethingIntoTheCalculator(string number, string app)
+        [Given(@"I start instance №'(.*)' of '(.*)'")]
+        public void IStartInstance(string number, string name)
         {
-            
+            Helpers.MIASupport.AddInstace(number, name);
         }
 
-        protected CalculatorUIMapModel CalculatorUIMap
+        [Given(@"I close instance №'(.*)' of '(.*)'")]
+        public void GivenICloseInstanceЩа(string number, string name)
         {
-            get { return (CalculatorUIMapModel)ScenarioContext.Current[CurrentPageKey]; }
-            set { ScenarioContext.Current[CurrentPageKey] = value; }
+            Helpers.MIASupport.GetInstance(number, name).Close();
         }
+
     }
 }

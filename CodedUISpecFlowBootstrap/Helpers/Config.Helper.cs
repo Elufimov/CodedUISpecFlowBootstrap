@@ -1,43 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Concurrent;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using YamlDotNet.RepresentationModel;
-using YamlDotNet.RepresentationModel.Serialization;
+using System.Data;
+
 using System.Diagnostics;
+
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Schema;
+using Newtonsoft.Json.Bson;
+using Newtonsoft.Json.Utilities;
 
 namespace CodedUISpecFlowBootstrap.Helpers
 {
-    class Config
+    public class Config
     {
+        public static ConfigObject Configuration { get; set; }
+        
         public static void ConfigReader(string path)
         {
-            var input = new StringReader(File.ReadAllText(path));
-
-            var deserializer = new Deserializer();
-            var config = (Configg)deserializer.Deserialize(input, typeof(Configg));
-            foreach (var a in config.Applications)
-            {
-                Trace.WriteLine(a.Name.ToString());
-                Trace.WriteLine(a.Path.ToString());
-            }
+            Configuration = JsonConvert.DeserializeObject<ConfigObject>(File.ReadAllText(path)); 
         }
 
-        private class Configg
+        public class ConfigObject
         {
             public Application[] Applications { get; set; }
         }
 
-        private class Application
-
+        public class Application
         {
             public string Name { get; set; }
             public string Path { get; set; }
         }
-
-      
-
     }
 }
