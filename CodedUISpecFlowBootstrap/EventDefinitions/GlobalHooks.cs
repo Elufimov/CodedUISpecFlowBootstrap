@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Diagnostics;
-
+﻿using System.Diagnostics;
+using CodedUISpecFlowBootstrap.UIMaps;
 using Microsoft.VisualStudio.TestTools.UITesting;
 
 using TechTalk.SpecFlow;
@@ -13,7 +9,7 @@ using CodedUISpecFlowBootstrap.Helpers;
 namespace CodedUISpecFlowBootstrap.EventDefinitions
 {
     [Binding]
-    public class Hooks1
+    public class GlobalHooks
     {
         [BeforeScenario]
         public static void BeforeScenario()
