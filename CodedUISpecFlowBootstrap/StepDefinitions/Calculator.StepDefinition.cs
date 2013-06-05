@@ -34,21 +34,21 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
         [When(@"In №'(.*)' of '(.*)' I have entered '(.*)' into the calculator")]
         public void WhenInIOpenViewMenu(string number, string name, string value)
         {
-            var app = MIASupport.GetInstance(number, name);
-            var calc = UIMapLoader.CalculatorUIMapModel(app);
+            MIASupport.GetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
             var characters = value.ToCharArray();
             foreach (var a in characters)
-            { 
-                if (a == '0') { Mouse.Click(calc.ZeroButton); }
-                if (a == '1') { Mouse.Click(calc.OneButton); }
-                if (a == '2') { Mouse.Click(calc.TwoButton); }
-                if (a == '3') { Mouse.Click(calc.ThreeButton); }
-                if (a == '4') { Mouse.Click(calc.FourButton); }
-                if (a == '5') { Mouse.Click(calc.FiveButton); }
-                if (a == '6') { Mouse.Click(calc.SixButton); }
-                if (a == '7') { Mouse.Click(calc.SevenButton); }
-                if (a == '8') { Mouse.Click(calc.EightButton); }
-                if (a == '9') { Mouse.Click(calc.NineButton); }
+            {
+                if (a == '0') { Mouse.Click(calc.UICalculatorWindow.UIZeroButtonControl.UIZeroButton); }
+                if (a == '1') { Mouse.Click(calc.UICalculatorWindow.UIOneButtonControl.UIOneButton); }
+                if (a == '2') { Mouse.Click(calc.UICalculatorWindow.UITwoButtonControl.UITwoButton); }
+                if (a == '3') { Mouse.Click(calc.UICalculatorWindow.UIThreeButtonControl.UIThreeButton); }
+                if (a == '4') { Mouse.Click(calc.UICalculatorWindow.UIFourButtonControl.UIFourButton); }
+                if (a == '5') { Mouse.Click(calc.UICalculatorWindow.UIFiveButtonControl.UIFiveButton); }
+                if (a == '6') { Mouse.Click(calc.UICalculatorWindow.UISixButtonControl.UISixButton); }
+                if (a == '7') { Mouse.Click(calc.UICalculatorWindow.UISevenButtonControl.UISevenButton); }
+                if (a == '8') { Mouse.Click(calc.UICalculatorWindow.UIEightButtonControl.UIEightButton); }
+                if (a == '9') { Mouse.Click(calc.UICalculatorWindow.UINineButtonControl.UINineButton); }
                 //else {Assert.Fail(String.Format("Символ {0} содержит недопустимые символы.", a));}
             }
         }
@@ -56,47 +56,45 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
         [Given(@"In №'(.*)' of '(.*)' I press add")]
         public void GivenInOfIPressAdd(string number, string name)
         {
-            var app = MIASupport.GetInstance(number, name);
-            var calc = UIMapLoader.CalculatorUIMapModel(app);
-            Mouse.Click(calc.PlusButton);
+            MIASupport.GetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
+            Mouse.Click(calc.UICalculatorWindow.UIPlusButtonControl.UIPlusButton);
         }
 
         [When(@"In №'(.*)' of '(.*)' I press result")]
         public void WhenInOfIPressResult(string number, string name)
         {
-            var app = MIASupport.GetInstance(number, name);
-            var calc = UIMapLoader.CalculatorUIMapModel(app);
-            Mouse.Click(calc.ResultButton);
+            MIASupport.GetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
+            Mouse.Click(calc.UICalculatorWindow.UIResultButtonControl.UIResultButton);
         }
 
         [Then(@"In №'(.*)' of '(.*)'the result should be '(.*)' on the screen")]
         public void ThenInOfTheResultShouldBeOnTheScreen(string number, string name, string result)
         {
-            var app = MIASupport.GetInstance(number, name);
-            var calc = UIMapLoader.CalculatorUIMapModel(app);
-            Assert.AreEqual(result, calc.ResultText.DisplayText);
+            MIASupport.GetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
+            Assert.AreEqual(result, calc.UICalculatorWindow.UIResultTextControl.UIResultText.DisplayText);
         }
 
         [Given(@"In №'(.*)' of '(.*)' I copy result to clipboard")]
         public void GivenInOfICopyResultToClipboard(string number, string name)
         {
-            var app = MIASupport.GetInstance(number, name);
-            var calc = UIMapLoader.CalculatorUIMapModel(app);
-            var contextMenu = UIMapLoader.ContextMenuUIMapModel(app);
-            contextMenu.ContextMenuItemName = "Копировать";
-            Mouse.Click(calc.ResultText, MouseButtons.Right);
-            Mouse.Click(contextMenu.ContextMenuItem);
+            MIASupport.GetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
+            var contextMenu = UIMapLoader.ContextMenu;
+            Mouse.Click(calc.UICalculatorWindow.UIResultTextControl.UIResultText, MouseButtons.Right);
+            Mouse.Click(contextMenu.UIContextMenuWindow.UIContextMenu.UICopyMenuItem);
         }
 
         [Given(@"In №'(.*)' of '(.*)' I insert value from clipboard")]
         public void GivenInOfIInsertValueFromClipboard(string number, string name)
         {
-            var app = MIASupport.GetInstance(number, name);
-            var calc = UIMapLoader.CalculatorUIMapModel(app);                     
-            Mouse.Click(calc.ResultText, MouseButtons.Right);
-            var contextMenu = UIMapLoader.ContextMenuUIMapModel(app);
-            contextMenu.ContextMenuItemName = "Вставить";
-            Mouse.Click(contextMenu.ContextMenuItem);
+            MIASupport.GetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
+            var contextMenu = UIMapLoader.ContextMenu;
+            Mouse.Click(calc.UICalculatorWindow.UIResultTextControl.UIResultText, MouseButtons.Right);
+            Mouse.Click(contextMenu.UIContextMenuWindow.UIContextMenu.UIPasteMenuItem);
         }
 
     }

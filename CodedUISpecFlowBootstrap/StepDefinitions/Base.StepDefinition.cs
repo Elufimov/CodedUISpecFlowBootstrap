@@ -16,7 +16,7 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
         [Given(@"I close instance №'(.*)' of '(.*)'")]
         public void GivenICloseInstanceOf(string number, string name)
         {
-            MIASupport.GetInstance(number, name).Close();
+            MIASupport.KillInstance(number, name);
         }
 
     }

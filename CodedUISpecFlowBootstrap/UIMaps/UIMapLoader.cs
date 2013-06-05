@@ -1,22 +1,33 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 
+using CodedUISpecFlowBootstrap.UIMaps.CalculatorClasses;
+using CodedUISpecFlowBootstrap.UIMaps.ContextMenuClasses;
+
 namespace CodedUISpecFlowBootstrap.UIMaps
 {
     class UIMapLoader
     {
-        private static CalculatorUIMapModel _calculatorUIMapModel;
-        private static ContextMenuUIMapModel _contextMenuUIMapModel;
+        private static Calculator _calculator;
+        private static ContextMenu _contextMenu;
 
-        public static CalculatorUIMapModel CalculatorUIMapModel(ApplicationUnderTest app)
+        public static Calculator Calculator
         {
-            _calculatorUIMapModel = new CalculatorUIMapModel(app);
-            return _calculatorUIMapModel;
+            get
+            {
+                _calculator = new Calculator();
+                return _calculator;
+            }
+            set { _calculator = value; }
         }
 
-        public static ContextMenuUIMapModel ContextMenuUIMapModel(ApplicationUnderTest app)
+        public static ContextMenu ContextMenu
         {
-            _contextMenuUIMapModel = new ContextMenuUIMapModel(app);
-            return _contextMenuUIMapModel;
+            get
+            {
+                _contextMenu =new ContextMenu();
+                return _contextMenu;
+            }
+            set { _contextMenu = value; }
         }
     }
 }
