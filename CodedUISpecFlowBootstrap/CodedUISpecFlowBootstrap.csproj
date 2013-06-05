@@ -69,16 +69,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StepDefinitions\Calculator.StepDefinition.cs" />
     <Compile Include="UIMaps\BaseMapModel.cs" />
+    <Compile Include="UIMaps\Calculator.cs">
+      <DependentUpon>Calculator.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UIMaps\Calculator.Designer.cs">
+      <DependentUpon>Calculator.uitest</DependentUpon>
+    </Compile>
     <Compile Include="UIMaps\Calculator.UIMapModel.cs" />
     <Compile Include="StepDefinitions\Base.StepDefinition.cs" />
     <Compile Include="UIMaps\ContextMenu.UIMapModel.cs" />
     <Compile Include="UIMaps\UIMapLoader.cs" />
-    <Compile Include="Utils\UIMap1.cs">
-      <DependentUpon>UIMap1.uitest</DependentUpon>
-    </Compile>
-    <Compile Include="Utils\UIMap1.Designer.cs">
-      <DependentUpon>UIMap1.uitest</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -88,9 +88,11 @@
       <LastGenOutput>Calculator.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <None Include="Utils\UIMap1.uitest" />
+    <None Include="UIMaps\Calculator.uitest" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Utils\" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
