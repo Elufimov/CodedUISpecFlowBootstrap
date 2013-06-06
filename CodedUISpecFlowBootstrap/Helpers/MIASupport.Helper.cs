@@ -6,7 +6,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITesting;
 
 using TechTalk.SpecFlow;
-using CodedUISpecFlowBootstrap.UIMaps;
 
 namespace CodedUISpecFlowBootstrap.Helpers
 {
@@ -19,11 +18,16 @@ namespace CodedUISpecFlowBootstrap.Helpers
             ScenarioContext.Current[key] = process;
         }
 
-        public static ApplicationUnderTest GetInstance(string number, string name)
+        public static void SetInstance(string number, string name)
         {
             var key = String.Format("{0} №{1}", name, number);
-            var app = ApplicationUnderTest.FromProcess((Process) ScenarioContext.Current[key]);
-            return app;
+            ApplicationUnderTest.FromProcess((Process) ScenarioContext.Current[key]);
+        }
+
+        public static void KillInstance(string number, string name)
+        {
+            var key = String.Format("{0} №{1}", name, number);
+            ApplicationUnderTest.FromProcess((Process)ScenarioContext.Current[key]).Close();            
         }
 
         private static Process StartProcess(string path)

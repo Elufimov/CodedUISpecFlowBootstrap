@@ -34,7 +34,7 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
         [When(@"In №'(.*)' of '(.*)' I have entered '(.*)' into the calculator")]
         public void WhenInIOpenViewMenu(string number, string name, string value)
         {
-            MIASupport.GetInstance(number, name);
+            MIASupport.SetInstance(number, name);
             var calc = UIMapLoader.Calculator;
             var characters = value.ToCharArray();
             foreach (var a in characters)
@@ -56,7 +56,7 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
         [Given(@"In №'(.*)' of '(.*)' I press add")]
         public void GivenInOfIPressAdd(string number, string name)
         {
-            MIASupport.GetInstance(number, name);
+            MIASupport.SetInstance(number, name);
             var calc = UIMapLoader.Calculator;
             Mouse.Click(calc.UICalculatorWindow.UIPlusButtonControl.UIPlusButton);
         }
@@ -64,7 +64,7 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
         [When(@"In №'(.*)' of '(.*)' I press result")]
         public void WhenInOfIPressResult(string number, string name)
         {
-            MIASupport.GetInstance(number, name);
+            MIASupport.SetInstance(number, name);
             var calc = UIMapLoader.Calculator;
             Mouse.Click(calc.UICalculatorWindow.UIResultButtonControl.UIResultButton);
         }
@@ -72,7 +72,7 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
         [Then(@"In №'(.*)' of '(.*)'the result should be '(.*)' on the screen")]
         public void ThenInOfTheResultShouldBeOnTheScreen(string number, string name, string result)
         {
-            MIASupport.GetInstance(number, name);
+            MIASupport.SetInstance(number, name);
             var calc = UIMapLoader.Calculator;
             Assert.AreEqual(result, calc.UICalculatorWindow.UIResultTextControl.UIResultText.DisplayText);
         }
@@ -80,7 +80,7 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
         [Given(@"In №'(.*)' of '(.*)' I copy result to clipboard")]
         public void GivenInOfICopyResultToClipboard(string number, string name)
         {
-            MIASupport.GetInstance(number, name);
+            MIASupport.SetInstance(number, name);
             var calc = UIMapLoader.Calculator;
             var contextMenu = UIMapLoader.ContextMenu;
             Mouse.Click(calc.UICalculatorWindow.UIResultTextControl.UIResultText, MouseButtons.Right);
@@ -90,7 +90,7 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
         [Given(@"In №'(.*)' of '(.*)' I insert value from clipboard")]
         public void GivenInOfIInsertValueFromClipboard(string number, string name)
         {
-            MIASupport.GetInstance(number, name);
+            MIASupport.SetInstance(number, name);
             var calc = UIMapLoader.Calculator;
             var contextMenu = UIMapLoader.ContextMenu;
             Mouse.Click(calc.UICalculatorWindow.UIResultTextControl.UIResultText, MouseButtons.Right);
