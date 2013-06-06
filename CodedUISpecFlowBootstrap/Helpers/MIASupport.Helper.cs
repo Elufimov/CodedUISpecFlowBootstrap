@@ -36,7 +36,6 @@ namespace CodedUISpecFlowBootstrap.Helpers
             var fullPath = Path.GetFullPath(path);
             processInfo.FileName = fullPath;
             processInfo.WorkingDirectory = fullPath;
-            Console.WriteLine(processInfo.FileName + " " + processInfo.WorkingDirectory);
             var process = Process.Start(processInfo);
             return process;
         }
