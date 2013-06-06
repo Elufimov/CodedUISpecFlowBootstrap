@@ -39,17 +39,42 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
             var characters = value.ToCharArray();
             foreach (var a in characters)
             {
-                if (a == '0') { Mouse.Click(calc.UICalculatorWindow.UIZeroButtonControl.UIZeroButton); }
-                if (a == '1') { Mouse.Click(calc.UICalculatorWindow.UIOneButtonControl.UIOneButton); }
-                if (a == '2') { Mouse.Click(calc.UICalculatorWindow.UITwoButtonControl.UITwoButton); }
-                if (a == '3') { Mouse.Click(calc.UICalculatorWindow.UIThreeButtonControl.UIThreeButton); }
-                if (a == '4') { Mouse.Click(calc.UICalculatorWindow.UIFourButtonControl.UIFourButton); }
-                if (a == '5') { Mouse.Click(calc.UICalculatorWindow.UIFiveButtonControl.UIFiveButton); }
-                if (a == '6') { Mouse.Click(calc.UICalculatorWindow.UISixButtonControl.UISixButton); }
-                if (a == '7') { Mouse.Click(calc.UICalculatorWindow.UISevenButtonControl.UISevenButton); }
-                if (a == '8') { Mouse.Click(calc.UICalculatorWindow.UIEightButtonControl.UIEightButton); }
-                if (a == '9') { Mouse.Click(calc.UICalculatorWindow.UINineButtonControl.UINineButton); }
-                //else {Assert.Fail(String.Format("Символ {0} содержит недопустимые символы.", a));}
+                switch (a)
+                {
+                    case '0':
+                        Mouse.Click(calc.UICalculatorWindow.UIZeroButtonControl.UIZeroButton);
+                        break;
+                    case '1':
+                        Mouse.Click(calc.UICalculatorWindow.UIOneButtonControl.UIOneButton);
+                        break;
+                    case '2':
+                        Mouse.Click(calc.UICalculatorWindow.UITwoButtonControl.UITwoButton);
+                        break;
+                    case '3':
+                        Mouse.Click(calc.UICalculatorWindow.UIThreeButtonControl.UIThreeButton);
+                        break;
+                    case '4':
+                        Mouse.Click(calc.UICalculatorWindow.UIFourButtonControl.UIFourButton);
+                        break;
+                    case '5':
+                        Mouse.Click(calc.UICalculatorWindow.UIFiveButtonControl.UIFiveButton);
+                        break;
+                    case '6':
+                        Mouse.Click(calc.UICalculatorWindow.UISixButtonControl.UISixButton);
+                        break;
+                    case '7':
+                        Mouse.Click(calc.UICalculatorWindow.UISevenButtonControl.UISevenButton);
+                        break;
+                    case '8':
+                        Mouse.Click(calc.UICalculatorWindow.UIEightButtonControl.UIEightButton);
+                        break;
+                    case '9':
+                        Mouse.Click(calc.UICalculatorWindow.UINineButtonControl.UINineButton);
+                        break;
+                    default:
+                        Assert.Fail(String.Format("Символ {0} содержит недопустимые символы.", a));
+                        break;
+                }
             }
         }
 
