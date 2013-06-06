@@ -1,0 +1,1 @@
+# CodedUISpecflowBootstrap is sketch for quick start UI Automation
