@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITesting;
 
@@ -43,12 +43,8 @@ namespace CodedUISpecFlowBootstrap.Helpers
 
         private static string GetPathByName(string name)
         {
-            string path = null;
-            foreach (var app in Config.Configuration.Applications)
-            {
-                if (app.Name == name) { path = app.Path; break; }
-                else { Assert.Fail(String.Format("Приложение {0} не найдено в конфиге.", name)); }
-            }
+            var path = (from app in Config.Configuration.Applications where app.Name == name select app.Path).FirstOrDefault();
+            if (path == null) { Assert.Fail(String.Format("Приложение {0} не найдено в конфиге.", name)); }
             return path;
         }
     }
