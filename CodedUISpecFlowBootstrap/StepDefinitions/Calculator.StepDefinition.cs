@@ -102,6 +102,42 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
             Assert.AreEqual(result, calc.UICalculatorWindow.UIResultTextControl.UIResultText.DisplayText);
         }
 
+        [Then(@"In №'(.*)' of '(.*)' i see ingineer calc")]
+        public void ThenInOfWindowShouldBeIngineer(string number, string name)
+        {
+            MIASupport.SetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
+            Assert.AreEqual(calc.UICalculatorWindow.Height, 323);
+            Assert.AreEqual(calc.UICalculatorWindow.Width, 423);
+         }
+
+        [Then(@"In №'(.*)' of '(.*)' i see programmer calc")]
+        public void ThenInOfWindowShouldBeProgrammer(string number, string name)
+        {
+            MIASupport.SetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
+            Assert.AreEqual(calc.UICalculatorWindow.Height, 389);
+            Assert.AreEqual(calc.UICalculatorWindow.Width, 423);
+        }
+
+        [Then(@"In №'(.*)' of '(.*)' i see statistic calc")]
+        public void ThenInOfWindowShouldBeStatistic(string number, string name)
+        {
+            MIASupport.SetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
+            Assert.AreEqual(calc.UICalculatorWindow.Height, 423);
+            Assert.AreEqual(calc.UICalculatorWindow.Width, 228);
+        }
+
+        [Then(@"In №'(.*)' of '(.*)' i see simple calc")]
+        public void ThenInOfWindowShouldBeSimple(string number, string name)
+        {
+            MIASupport.SetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
+            Assert.AreEqual(calc.UICalculatorWindow.Height, 323);
+            Assert.AreEqual(calc.UICalculatorWindow.Width, 228);
+        }
+
         [Given(@"In №'(.*)' of '(.*)' I copy result to clipboard")]
         public void GivenInOfICopyResultToClipboard(string number, string name)
         {
@@ -110,6 +146,46 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
             var contextMenu = UIMapLoader.ContextMenu;
             Mouse.Click(calc.UICalculatorWindow.UIResultTextControl.UIResultText, MouseButtons.Right);
             Mouse.Click(contextMenu.UIContextMenuWindow.UIContextMenu.UICopyMenuItem);
+        }
+
+        [Given(@"In №'(.*)' of '(.*)' I switch to ingineer type")]
+        public void GivenInOfISwitchToIngineer(string number, string name)
+        {
+            MIASupport.SetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
+            Mouse.Click(calc.UICalculatorWindow.UIMenuBar.UIViewMenuItem);
+            Mouse.Click(calc.UICalculatorWindow.UIMenuBar.UIViewMenuIngineerItem);
+            System.Threading.Thread.Sleep(150);
+        }
+
+        [Given(@"In №'(.*)' of '(.*)' I switch to simple type")]
+        public void GivenInOfISwitchToSimple(string number, string name)
+        {
+            MIASupport.SetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
+            Mouse.Click(calc.UICalculatorWindow.UIMenuBar.UIViewMenuItem);
+            Mouse.Click(calc.UICalculatorWindow.UIMenuBar.UIViewMenuSimpleItem);
+            System.Threading.Thread.Sleep(150);
+        }
+
+        [Given(@"In №'(.*)' of '(.*)' I switch to programmer type")]
+        public void GivenInOfISwitchToProgrammer(string number, string name)
+        {
+            MIASupport.SetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
+            Mouse.Click(calc.UICalculatorWindow.UIMenuBar.UIViewMenuItem);
+            Mouse.Click(calc.UICalculatorWindow.UIMenuBar.UIViewMenuProgrammerItem);
+            System.Threading.Thread.Sleep(150);
+        }
+
+        [Given(@"In №'(.*)' of '(.*)' I switch to statistic type")]
+        public void GivenInOfISwitchToStatistic(string number, string name)
+        {
+            MIASupport.SetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
+            Mouse.Click(calc.UICalculatorWindow.UIMenuBar.UIViewMenuItem);
+            Mouse.Click(calc.UICalculatorWindow.UIMenuBar.UIViewMenuStatisticItem);
+            System.Threading.Thread.Sleep(150);
         }
 
         [Given(@"In №'(.*)' of '(.*)' I insert value from clipboard")]
