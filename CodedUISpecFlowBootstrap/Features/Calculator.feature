@@ -29,11 +29,11 @@ Scenario: Multi instance work
 
 Scenario: Switch to type
 	Given I start instance №'1' of 'Calc1'	
-	And In №'1' of 'Calc1' I switch to ingineer type
-		Then In №'1' of 'Calc1' i see ingineer calc
-	Given In №'1' of 'Calc1' I switch to programmer type
-		Then In №'1' of 'Calc1' i see programmer calc
-	Given In №'1' of 'Calc1' I switch to statistic type
-		Then In №'1' of 'Calc1' i see statistic calc
-	Given In №'1' of 'Calc1' I switch to simple type
-		Then In №'1' of 'Calc1' i see simple calc
+	And In №'1' of 'Calc1' I switch to 'ingineer' type
+		Then In №'1' of 'Calc1' i see 'ingineer' calc
+	Given In №'1' of 'Calc1' I switch to 'programmer' type
+		Then In №'1' of 'Calc1' i see 'programmer' calc
+	Given In №'1' of 'Calc1' I switch to 'statistic' type
+		Then In №'1' of 'Calc1' i see 'statistic' calc
+	Given In №'1' of 'Calc1' I switch to 'simple' type
+		Then In №'1' of 'Calc1' i see 'simple' calc
