@@ -421,6 +421,18 @@ namespace CodedUISpecFlowBootstrap.UIMaps.CalculatorClasses
                 return this.mUINineButtonControl;
             }
         }
+        
+        public UIRadioButtonWindow UIRadioButtonWindow
+        {
+            get
+            {
+                if ((this.mUIRadioButtonWindow == null))
+                {
+                    this.mUIRadioButtonWindow = new UIRadioButtonWindow(this);
+                }
+                return this.mUIRadioButtonWindow;
+            }
+        }
         #endregion
         
         #region Fields
@@ -483,6 +495,8 @@ namespace CodedUISpecFlowBootstrap.UIMaps.CalculatorClasses
         private UIEightButtonControl mUIEightButtonControl;
         
         private UINineButtonControl mUINineButtonControl;
+        
+        private UIRadioButtonWindow mUIRadioButtonWindow;
         #endregion
     }
     
@@ -500,17 +514,13 @@ namespace CodedUISpecFlowBootstrap.UIMaps.CalculatorClasses
         }
         
         #region Properties
-        public WinMenuItem UIViewMenuItem
+        public UIViewMenuItem UIViewMenuItem
         {
             get
             {
                 if ((this.mUIViewMenuItem == null))
                 {
-                    this.mUIViewMenuItem = new WinMenuItem(this);
-                    #region Search Criteria
-                    this.mUIViewMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Вид";
-                    this.mUIViewMenuItem.WindowTitles.Add("Калькулятор");
-                    #endregion
+                    this.mUIViewMenuItem = new UIViewMenuItem(this);
                 }
                 return this.mUIViewMenuItem;
             }
@@ -547,15 +557,103 @@ namespace CodedUISpecFlowBootstrap.UIMaps.CalculatorClasses
                 return this.mUIHelpMenuItem;
             }
         }
+
+        public WinMenuItem UIViewMenuIngineerItem
+        {
+            get
+            {
+                if ((this.mUIViewMenuIngineerItem == null))
+                {
+                    this.mUIViewMenuIngineerItem = new WinMenuItem(this);
+                    #region Search Criteria
+                    this.mUIViewMenuIngineerItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Инженерный\tAlt+2";
+                    this.mUIViewMenuIngineerItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIViewMenuIngineerItem.WindowTitles.Add("Калькулятор");
+                    #endregion
+                }
+                return this.mUIViewMenuIngineerItem;
+            }
+        }
+
+        public WinMenuItem UIViewMenuSimpleItem
+        {
+            get
+            {
+                if ((this.mUIViewMenuSimpleItem == null))
+                {
+                    this.mUIViewMenuSimpleItem = new WinMenuItem(this);
+                    #region Search Criteria
+                    this.mUIViewMenuSimpleItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Обычный\tAlt+1";
+                    this.mUIViewMenuSimpleItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIViewMenuSimpleItem.WindowTitles.Add("Калькулятор");
+                    #endregion
+                }
+                return this.mUIViewMenuSimpleItem;
+            }
+        }
+
+        public WinMenuItem UIViewMenuProgrammerItem
+        {
+            get
+            {
+                if ((this.mUIViewMenuProgrammerItem == null))
+                {
+                    this.mUIViewMenuProgrammerItem = new WinMenuItem(this);
+                    #region Search Criteria
+                    this.mUIViewMenuProgrammerItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Программист\tAlt+3";
+                    this.mUIViewMenuProgrammerItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIViewMenuProgrammerItem.WindowTitles.Add("Калькулятор");
+                    #endregion
+                }
+                return this.mUIViewMenuProgrammerItem;
+            }
+        }
+
+        public WinMenuItem UIViewMenuStatisticItem
+        {
+            get
+            {
+                if ((this.mUIViewMenuStatisticItem == null))
+                {
+                    this.mUIViewMenuStatisticItem = new WinMenuItem(this);
+                    #region Search Criteria
+                    this.mUIViewMenuStatisticItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Статистика\tAlt+4";
+                    this.mUIViewMenuStatisticItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIViewMenuStatisticItem.WindowTitles.Add("Калькулятор");
+                    #endregion
+                }
+                return this.mUIViewMenuStatisticItem;
+            }
+        }
         #endregion
         
         #region Fields
-        private WinMenuItem mUIViewMenuItem;
+        private UIViewMenuItem mUIViewMenuItem;
         
         private WinMenuItem mUIEditMenuItem;
         
         private WinMenuItem mUIHelpMenuItem;
+        private WinMenuItem mUIViewMenuIngineerItem;
+        private WinMenuItem mUIViewMenuSimpleItem;
+        private WinMenuItem mUIViewMenuProgrammerItem;
+        private WinMenuItem mUIViewMenuStatisticItem;
         #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.60315.1")]
+    public class UIViewMenuItem : WinMenuItem
+    {
+        
+        public UIViewMenuItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Вид";
+            this.WindowTitles.Add("Калькулятор");
+            #endregion
+        }
+        
+     
     }
     
     [GeneratedCode("Coded UITest Builder", "11.0.60315.1")]
@@ -1599,6 +1697,42 @@ namespace CodedUISpecFlowBootstrap.UIMaps.CalculatorClasses
         
         #region Fields
         private WinButton mUINineButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.60315.1")]
+    public class UIRadioButtonWindow : WinWindow
+    {
+        
+        public UIRadioButtonWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "321";
+            this.WindowTitles.Add("Калькулятор");
+            #endregion
+        }
+        
+        #region Properties
+        public WinRadioButton UIDegreeRadioButton
+        {
+            get
+            {
+                if ((this.mUIDegreeRadioButton == null))
+                {
+                    this.mUIDegreeRadioButton = new WinRadioButton(this);
+                    #region Search Criteria
+                    this.mUIDegreeRadioButton.SearchProperties[WinRadioButton.PropertyNames.Name] = "Градусы";
+                    this.mUIDegreeRadioButton.WindowTitles.Add("Калькулятор");
+                    #endregion
+                }
+                return this.mUIDegreeRadioButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinRadioButton mUIDegreeRadioButton;
         #endregion
     }
 }

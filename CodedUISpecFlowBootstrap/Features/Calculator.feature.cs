@@ -130,6 +130,36 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Switch to type")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Calculator Example")]
+        public virtual void SwitchToType()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Switch to type", ((string[])(null)));
+#line 30
+this.ScenarioSetup(scenarioInfo);
+#line 31
+ testRunner.Given("I start instance №\'1\' of \'Calc1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 32
+ testRunner.And("In №\'1\' of \'Calc1\' I switch to \'ingineer\' type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 33
+  testRunner.Then("In №\'1\' of \'Calc1\' i see \'ingineer\' calc", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 34
+ testRunner.Given("In №\'1\' of \'Calc1\' I switch to \'programmer\' type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 35
+  testRunner.Then("In №\'1\' of \'Calc1\' i see \'programmer\' calc", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 36
+ testRunner.Given("In №\'1\' of \'Calc1\' I switch to \'statistic\' type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 37
+  testRunner.Then("In №\'1\' of \'Calc1\' i see \'statistic\' calc", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 38
+ testRunner.Given("In №\'1\' of \'Calc1\' I switch to \'simple\' type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 39
+  testRunner.Then("In №\'1\' of \'Calc1\' i see \'simple\' calc", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

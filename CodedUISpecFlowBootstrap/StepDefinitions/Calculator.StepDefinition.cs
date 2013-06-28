@@ -122,5 +122,59 @@ namespace CodedUISpecFlowBootstrap.StepDefinitions
             Mouse.Click(contextMenu.UIContextMenuWindow.UIContextMenu.UIPasteMenuItem);
         }
 
+        [Given(@"In №'(.*)' of '(.*)' I switch to '(.*)' type")]
+        public void GivenInOfISwitchToType(string number, string name, string type)
+        {
+            MIASupport.SetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
+            Mouse.Click(calc.UICalculatorWindow.UIMenuBar.UIViewMenuItem);
+            if (type.Equals("ingineer"))
+            {
+                Mouse.Click(calc.UICalculatorWindow.UIMenuBar.UIViewMenuIngineerItem);
+            }
+            else if (type.Equals("simple"))
+            {
+                Mouse.Click(calc.UICalculatorWindow.UIMenuBar.UIViewMenuSimpleItem);
+            }
+            else if (type.Equals("programmer"))
+            {
+                Mouse.Click(calc.UICalculatorWindow.UIMenuBar.UIViewMenuProgrammerItem);
+            }
+            else if (type.Equals("statistic"))
+            {
+                Mouse.Click(calc.UICalculatorWindow.UIMenuBar.UIViewMenuStatisticItem);
+            }
+            else Assert.Fail(String.Format("Тип {0} не найден в меню.", type));
+            System.Threading.Thread.Sleep(150);
+        }
+
+        [Then(@"In №'(.*)' of '(.*)' i see '(.*)' calc")]
+        public void ThenInOfWindowShouldBeType(string number, string name, string type)
+        {
+            MIASupport.SetInstance(number, name);
+            var calc = UIMapLoader.Calculator;
+            if (type.Equals("ingineer"))
+            {
+                Assert.AreEqual(calc.UICalculatorWindow.Height, 323);
+                Assert.AreEqual(calc.UICalculatorWindow.Width, 423);
+            }
+            else if (type.Equals("simple"))
+            {
+                Assert.AreEqual(calc.UICalculatorWindow.Height, 323);
+                Assert.AreEqual(calc.UICalculatorWindow.Width, 228);
+            }
+            else if (type.Equals("programmer"))
+            {
+                Assert.AreEqual(calc.UICalculatorWindow.Height, 389);
+                Assert.AreEqual(calc.UICalculatorWindow.Width, 423);
+            }
+            else if (type.Equals("statistic"))
+            {
+                Assert.AreEqual(calc.UICalculatorWindow.Height, 423);
+                Assert.AreEqual(calc.UICalculatorWindow.Width, 228);
+            }
+            else Assert.Fail(String.Format("Тип {0} не найден в меню.", type));
+        }
+
     }
 }
